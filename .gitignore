@@ -3,8 +3,12 @@ deployment-output.json
 deployment-summary.txt
 *.tmp.json
 
+# Compiled Bicep files (generated from .bicep sources)
+infra/*.json
+
 # Azure and infrastructure
 *.parameters.json
+!*.parameters.example.json
 .azure/
 
 # Environment and secrets
