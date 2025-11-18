@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GenAI Settings for Expense Management System",
+  "description": "Configuration file for Azure OpenAI and Cognitive Services. Use managed identity for authentication where possible.",
+  "type": "object",
+  "properties": {
+    "AzureOpenAI": {
+      "type": "object",
+      "description": "Azure OpenAI Service configuration",
+      "properties": {
+        "Endpoint": {
+          "type": "string",
+          "description": "Azure OpenAI endpoint URL (e.g., https://<resource-name>.openai.azure.com/)",
+          "example": "https://expensemgmt-openai-abc123.openai.azure.com/"
+        },
+        "DeploymentName": {
+          "type": "string",
+          "description": "Name of the GPT-4o deployment",
+          "default": "gpt-4o"
+        },
+        "ApiVersion": {
+          "type": "string",
+          "description": "Azure OpenAI API version",
+          "default": "2024-02-15-preview"
+        },
+        "ModelName": {
+          "type": "string",
+          "description": "Model name used in the deployment",
+          "default": "gpt-4o"
+        },
+        "ModelVersion": {
+          "type": "string",
+          "description": "Model version",
+          "default": "2024-05-13"
+        },
+        "Region": {
+          "type": "string",
+          "description": "Region where Azure OpenAI is deployed",
+          "default": "swedencentral"
+        },
+        "UseManagedIdentity": {
+          "type": "boolean",
+          "description": "Use managed identity for authentication (recommended)",
+          "default": true
+        },
+        "MaxTokens": {
+          "type": "integer",
+          "description": "Maximum tokens for completion",
+          "default": 1000
+        },
+        "Temperature": {
+          "type": "number",
+          "description": "Temperature for response generation (0.0 to 1.0)",
+          "default": 0.7,
+          "minimum": 0.0,
+          "maximum": 1.0
+        }
+      },
+      "required": ["Endpoint", "DeploymentName"]
+    },
+    "CognitiveServices": {
+      "type": "object",
+      "description": "Azure Cognitive Services configuration",
+      "properties": {
+        "Endpoint": {
+          "type": "string",
+          "description": "Cognitive Services endpoint URL",
+          "example": "https://expensemgmt-cognitive-abc123.cognitiveservices.azure.com/"
+        },
+        "Region": {
+          "type": "string",
+          "description": "Region where Cognitive Services is deployed",
+          "default": "uksouth"
+        },
+        "UseManagedIdentity": {
+          "type": "boolean",
+          "description": "Use managed identity for authentication (recommended)",
+          "default": true
+        }
+      },
+      "required": ["Endpoint"]
+    },
+    "ChatInterface": {
+      "type": "object",
+      "description": "Chat interface configuration",
+      "properties": {
+        "SystemPrompt": {
+          "type": "string",
+          "description": "System prompt for the AI assistant",
+          "default": "You are an AI assistant for an Expense Management System. You help employees submit expenses, managers review them, and provide insights on expense data. Always be professional and concise."
+        },
+        "MaxHistoryMessages": {
+          "type": "integer",
+          "description": "Maximum number of messages to keep in chat history",
+          "default": 10
+        },
+        "EnableExpenseInsights": {
+          "type": "boolean",
+          "description": "Enable AI-powered expense insights and analytics",
+          "default": true
+        },
+        "EnableReceiptAnalysis": {
+          "type": "boolean",
+          "description": "Enable AI-powered receipt analysis (requires Cognitive Services)",
+          "default": true
+        }
+      }
+    }
+  },
+  "required": ["AzureOpenAI"]
+}

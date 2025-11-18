@@ -1,0 +1,42 @@
+# Deployment outputs and temporary files
+deployment-output.json
+deployment-summary.txt
+*.tmp.json
+
+# Compiled Bicep files (generated from .bicep sources)
+infra/*.json
+
+# Azure and infrastructure
+*.parameters.json
+!*.parameters.example.json
+.azure/
+
+# Environment and secrets
+.env
+.env.local
+*.secret
+*.key
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Dependencies (if app code is added later)
+node_modules/
+__pycache__/
+*.pyc
+bin/
+obj/
+dist/
+build/
+
+# OS files
+Thumbs.db
