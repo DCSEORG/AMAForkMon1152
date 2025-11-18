@@ -1,0 +1,25 @@
+{
+  "$schema": "./GenAISettings.schema.json",
+  "AzureOpenAI": {
+    "Endpoint": "REPLACE_WITH_OUTPUT_FROM_DEPLOYMENT",
+    "DeploymentName": "gpt-4o",
+    "ApiVersion": "2024-02-15-preview",
+    "ModelName": "gpt-4o",
+    "ModelVersion": "2024-05-13",
+    "Region": "swedencentral",
+    "UseManagedIdentity": true,
+    "MaxTokens": 1000,
+    "Temperature": 0.7
+  },
+  "CognitiveServices": {
+    "Endpoint": "REPLACE_WITH_OUTPUT_FROM_DEPLOYMENT",
+    "Region": "uksouth",
+    "UseManagedIdentity": true
+  },
+  "ChatInterface": {
+    "SystemPrompt": "You are an AI assistant for an Expense Management System. You help employees submit expenses, managers review them, and provide insights on expense data. You can analyze receipts, suggest expense categories, detect policy violations, and provide spending insights. Always be professional and concise.",
+    "MaxHistoryMessages": 10,
+    "EnableExpenseInsights": true,
+    "EnableReceiptAnalysis": true
+  }
+}
